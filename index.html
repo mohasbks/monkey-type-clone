@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Speed Typing Test</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title-section">
+                <h1>Speed Typing Test</h1>
+                <p class="subtitle">Improve your typing speed with real-time feedback</p>
+            </div>
+            <div class="settings">
+                <div class="setting-group">
+                    <label for="time-select">Time</label>
+                    <select id="time-select" class="setting-item">
+                        <option value="15">15s</option>
+                        <option value="30">30s</option>
+                        <option value="60" selected>60s</option>
+                        <option value="120">120s</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label for="mode-select">Mode</label>
+                    <select id="mode-select" class="setting-item">
+                        <option value="words">Words</option>
+                        <option value="quotes">Quotes</option>
+                        <option value="code">Code Training</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label for="language-select">Language</label>
+                    <select id="language-select" class="setting-item" style="display: none;">
+                        <option value="javascript">JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="cpp">C++</option>
+                        <option value="ruby">Ruby</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label for="code-category-select">Category</label>
+                    <select id="code-category-select" class="setting-item" style="display: none;">
+                        <option value="algorithms">Algorithms</option>
+                        <option value="datastructures">Data Structures</option>
+                        <option value="patterns">Design Patterns</option>
+                        <option value="syntax">Basic Syntax</option>
+                        <option value="functions">Functions</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label for="theme-select">Theme</label>
+                    <select id="theme-select" class="setting-item">
+                        <option value="dark">Dark</option>
+                        <option value="light">Light</option>
+                        <option value="matrix">Matrix</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-container">
+            <div class="stats-container">
+                <div class="timer" id="timer">60s</div>
+                <div class="metrics">
+                    <div class="stat-box wpm">
+                        <div class="label">WPM</div>
+                        <div class="value" id="wpm">0</div>
+                    </div>
+                    <div class="stat-box accuracy">
+                        <div class="label">Accuracy</div>
+                        <div class="value" id="accuracy">100%</div>
+                    </div>
+                    <div class="stat-box characters">
+                        <div class="label">Characters</div>
+                        <div class="value" id="characters">0</div>
+                    </div>
+                    <div class="stat-box errors">
+                        <div class="label">Errors</div>
+                        <div class="value" id="errors">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-section">
+                <div class="text-display code-display" id="text-display"></div>
+                <textarea id="input" class="input" placeholder="Click here and start typing when ready..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+            </div>
+            
+            <div class="button-container">
+                <button id="restart-button" class="button">
+                    <i class="fas fa-redo"></i> Restart
+                </button>
+                <button id="share-button" class="button">
+                    <i class="fas fa-share"></i> Share
+                </button>
+            </div>
+        </div>
+
+        <div class="results-container" style="display: none;">
+            <h2>Test Complete!</h2>
+            <div class="final-stats">
+                <div class="final-stat">
+                    <span class="label">Final WPM</span>
+                    <span class="value" id="final-wpm">0</span>
+                </div>
+                <div class="final-stat">
+                    <span class="label">Accuracy</span>
+                    <span class="value" id="final-accuracy">0%</span>
+                </div>
+                <div class="final-stat">
+                    <span class="label">Time</span>
+                    <span class="value" id="final-time">0s</span>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="wpm-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="history-container">
+            <h3><i class="fas fa-history"></i> Previous Results</h3>
+            <div id="history-list" class="history-list"></div>
+        </div>
+
+        <footer class="footer">
+            <p>Press Tab + Enter to quickly restart • Esc to reset • Made with ❤️</p>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/components/prism-ruby.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
