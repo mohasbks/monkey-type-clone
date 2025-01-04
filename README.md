@@ -101,7 +101,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Almotasembellah - [My facebook](https://www.facebook.com/motasem.awwad.18)
 
-Project Link: [https://github.com/yourusername/monkey-type-clone](
+Project Link: [
+https://github.com/mohasbks/monkey-type-clone.git](
 https://github.com/mohasbks/monkey-type-clone.git)
 
 ---
